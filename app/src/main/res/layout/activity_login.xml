@@ -20,8 +20,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:hint="Email"
-            android:autofillHints="Email"
+            android:hint="@string/email"
+            android:autofillHints="@string/email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -33,6 +33,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
+            android:inputType="textPassword"
             android:autofillHints="@string/password"
             android:hint="@string/password" />
 
@@ -49,7 +50,7 @@
             android:onClick="AttemptLogin"
             android:text="@string/login" />
 
-        <!--<Button
+        <Button
             android:id="@+id/Button_Register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,14 +61,14 @@
             android:layout_marginBottom="10dp"
             android:background="@color/colorPrimaryDark"
             android:onClick="Register"
-            android:text="@string/register" />-->
+            android:text="@string/register" />
 
 
         <Button
             android:id="@+id/Button_Reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Button_Login"
+            android:layout_below="@+id/Button_Register"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
