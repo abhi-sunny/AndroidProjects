@@ -36,6 +36,8 @@ public class Forgot_Password extends AppCompatActivity {
            username.setError("Enter a Valid Register Email ID");
            return;
        }
+        UserInteraction.setVisibility(View.INVISIBLE);
+       username.setEnabled(false);
         mAuth.sendPasswordResetEmail(username.getText().toString().trim()).addOnCompleteListener(this,
                 new OnCompleteListener<Void>(){
             @Override
@@ -58,6 +60,7 @@ public class Forgot_Password extends AppCompatActivity {
                     {
                         UserInteraction.setBackgroundColor(getColor(R.color.Error));
                     }
+                    username.setEnabled(true);
                 }
             }
         });
