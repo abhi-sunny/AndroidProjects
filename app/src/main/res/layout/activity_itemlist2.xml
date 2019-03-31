@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".itemlist2"
-    android:background="@color/Appbackground">
+    android:background="@drawable/appbackground">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -28,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        android:tint="@color/buttonbackground"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_send" />
 
@@ -39,7 +40,8 @@
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="@color/buttonbackground"
         app:fabSize="normal"
-        app:srcCompat="@android:drawable/ic_lock_power_off" />
+        app:srcCompat="@android:drawable/ic_lock_power_off"
+         />
 
     <ListView
         android:layout_width="match_parent"

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="@drawable/appbackground">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,11 +20,13 @@
         android:layout_marginRight="10dp"
         android:layout_alignParentTop="true"
         android:inputType="text"
+        android:background="@color/EditTextBackground"
         android:autofillHints="@string/user_name"
         android:hint="@string/user_name"
         android:importantForAutofill="yes"
         tools:layout_editor_absoluteX="33dp" />
     <EditText
+        android:background="@color/EditTextBackground"
         android:id="@+id/EmailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,6 +41,7 @@
         android:layout_below="@id/DisplayNameEditText"
          />
     <EditText
+        android:background="@color/EditTextBackground"
         android:id="@+id/PassWordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,6 +56,7 @@
         android:layout_below="@+id/EmailEditText"
          />
     <EditText
+        android:background="@color/EditTextBackground"
         android:id="@+id/AddressEditText"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -71,7 +76,9 @@
             android:layout_height="wrap_content"
             android:text="@string/register"
             android:layout_marginTop="30dp"
-            android:background="@color/colorPrimary"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/roundbutton"
             android:layout_below="@id/AddressEditText"
             android:layout_centerHorizontal="true"
             android:onClick="Register"
@@ -81,7 +88,9 @@
         android:layout_height="wrap_content"
         android:text="@string/reset"
         android:layout_marginTop="30dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/roundbutton"
         android:layout_below="@id/Button_Register"
         android:layout_centerHorizontal="true"
         android:onClick="Reset"
