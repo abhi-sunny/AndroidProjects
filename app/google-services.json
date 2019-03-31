@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "671027004009",
+    "firebase_url": "https://arvind-whole-sale.firebaseio.com",
+    "project_id": "arvind-whole-sale",
+    "storage_bucket": "arvind-whole-sale.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671027004009:android:0f39f06aa0966e39",
+        "android_client_info": {
+          "package_name": "com.example.arvindwholesale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671027004009-v8ir3ju5od2rp6ug1lnm9lpkng0efgg0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.arvindwholesale",
+            "certificate_hash": "b771836fe2ea3c0a3ba64849dcfc65fec625d4c2"
+          }
+        },
+        {
+          "client_id": "671027004009-4fqd1ucj6t4rpq02lkv83td3ufs5ih8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChgPk-E3g5O312LGvw9CRdTK_qzSiyVe0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671027004009-4fqd1ucj6t4rpq02lkv83td3ufs5ih8t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

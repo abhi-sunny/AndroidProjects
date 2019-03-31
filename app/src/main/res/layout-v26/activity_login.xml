@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/EditText_UserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/user_name"
+            android:autofillHints="username"
+            android:inputType="textEmailAddress"
+            android:maxLines="2"/>
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/EditText_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="100dp"
+            android:autofillHints="@string/password"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/password" />
+
+        <Button
+            android:background="@color/colorPrimary"
+            android:onClick="AttemptLogin"
+            android:id="@+id/Button_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="190dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/login" />
+        <Button
+            android:background="@color/colorPrimaryDark"
+            android:onClick="Register"
+            android:id="@+id/Button_Register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="280dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/register" />
+
+        <Button
+            android:background="@color/colorPrimaryDark"
+            android:onClick="Reset"
+            android:id="@+id/Button_ForGotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="370dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/reset" />
+    </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="clip_horizontal"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
+</android.support.constraint.ConstraintLayout>

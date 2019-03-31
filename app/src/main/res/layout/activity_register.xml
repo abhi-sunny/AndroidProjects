@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/DisplayNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:inputType="text"
+        android:autofillHints="@string/user_name"
+        android:hint="@string/user_name"
+        android:importantForAutofill="yes"
+        tools:layout_editor_absoluteX="33dp" />
+    <EditText
+        android:id="@+id/EmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:inputType="textEmailAddress"
+        android:importantForAutofill="yes"
+        android:hint="@string/email"
+        android:autofillHints="@string/email"
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+        android:layout_below="@id/DisplayNameEditText"
+         />
+    <EditText
+        android:id="@+id/PassWordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:importantForAutofill="no"
+        android:autofillHints="@string/password"
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/EmailEditText"
+         />
+    <EditText
+        android:id="@+id/AddressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/PassWordEditText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/adress"
+        android:importantForAutofill="yes"
+        android:inputType="textMultiLine"
+        android:autofillHints="@string/adress"
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/Button_Register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/AddressEditText"
+            android:layout_centerHorizontal="true"
+            android:onClick="Register"
+    />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/Button_Register"
+        android:layout_centerHorizontal="true"
+        android:onClick="Reset"
+        />
+</RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+</android.support.constraint.ConstraintLayout>
