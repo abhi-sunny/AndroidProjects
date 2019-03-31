@@ -32,12 +32,10 @@ public class Forgot_Password extends AppCompatActivity {
     }
 
     public void Reset(View view) {
-
-        UserInteraction.setVisibility(View.VISIBLE);
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
-            UserInteraction.setBackgroundColor(getColor(R.color.colorAccent));
-        }
+       if(username.getText().toString().equals("") || !username.getText().toString().contains("@")) {
+           username.setError("Enter a Valid Register Email ID");
+           return;
+       }
         mAuth.sendPasswordResetEmail(username.getText().toString().trim()).addOnCompleteListener(this,
                 new OnCompleteListener<Void>(){
             @Override
@@ -58,7 +56,7 @@ public class Forgot_Password extends AppCompatActivity {
                     UserInteraction.setVisibility(View.VISIBLE);
                     if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                     {
-                        UserInteraction.setBackgroundColor(getColor(R.color.colorAccent));
+                        UserInteraction.setBackgroundColor(getColor(R.color.Error));
                     }
                 }
             }
