@@ -12,5 +12,4 @@
     <string name="title_activity_itemlist2">Products List</string>
     <string name="email">Email</string>
     <string name="adress">Address</string>
-    <string name="log_out">Log Out</string>
 </resources>

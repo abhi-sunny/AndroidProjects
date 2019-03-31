@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@color/Appbackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,9 +14,11 @@
 
         <EditText
             android:id="@+id/EditText_UserName"
+            android:background="@color/EditTextBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:padding="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="10dp"
@@ -26,8 +29,10 @@
 
         <EditText
             android:id="@+id/EditText_Password"
+            android:background="@color/EditTextBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:layout_below="@+id/EditText_UserName"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
@@ -38,15 +43,15 @@
             android:hint="@string/password" />
 
         <Button
+
             android:id="@+id/Button_Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/EditText_Password"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/colorPrimary"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/roundbutton"
             android:onClick="AttemptLogin"
             android:text="@string/login" />
 
@@ -55,11 +60,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Button_Login"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/colorPrimaryDark"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/roundbutton"
             android:onClick="Register"
             android:text="@string/register" />
 
@@ -69,11 +73,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Button_Register"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/colorPrimaryDark"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/roundbutton"
             android:onClick="Reset"
             android:text="@string/reset" />
     </RelativeLayout>
