@@ -78,6 +78,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/roundbutton"
             android:onClick="Reset"
             android:text="@string/reset" />
@@ -87,6 +88,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="clip_horizontal"
+            android:layout_centerHorizontal="true"
             android:visibility="gone" />
     </RelativeLayout>
 

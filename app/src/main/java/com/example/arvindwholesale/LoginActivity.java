@@ -9,7 +9,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,29 +51,34 @@ public class LoginActivity extends AppCompatActivity {
                                 toast.show();
                                 Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
                                 startActivity(itemlist);
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Toast toast = Toast.makeText(getApplicationContext(), "LogIn failed", Toast.LENGTH_LONG);
-                                toast.show();
                             }
-
                         }
-
-
-                    });
+                    }).addOnFailureListener(this, new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "LogIn failed," + e.getMessage(), Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            }).addOnCanceledListener(this, new OnCanceledListener() {
+                @Override
+                public void onCanceled() {
+                    Toast toast = Toast.makeText(getApplicationContext(), "LogIn failed,", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            });
         } else {
             UserName.setError("Please Enter a Valid Email ID");
         }
-        progressBar.setVisibility(View.GONE);
         freezLayout(false);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     private void freezLayout(boolean freez) {
-        /*findViewById(R.id.Button_Login).setEnabled(!freez);
+        findViewById(R.id.Button_Login).setEnabled(!freez);
         findViewById(R.id.Button_Register).setEnabled(!freez);
         findViewById(R.id.Button_Reset).setEnabled(!freez);
         UserName.setEnabled(!freez);
-        PassWord.setEnabled(!freez);*/
+        PassWord.setEnabled(!freez);
     }
     private void launchForgotPassword() {
         Intent intent = new Intent(getApplicationContext(),Forgot_Password.class);
