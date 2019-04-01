@@ -6,9 +6,12 @@
     tools:context=".LoginActivity"
     android:background="@drawable/appbackground">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
@@ -78,11 +81,14 @@
             android:background="@drawable/roundbutton"
             android:onClick="Reset"
             android:text="@string/reset" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="clip_horizontal"
+            android:visibility="gone" />
     </RelativeLayout>
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="clip_horizontal" />
-    <!--android:visibility="gone"-->
+
+    </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

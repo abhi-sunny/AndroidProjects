@@ -1,9 +1,9 @@
 package com.example.arvindwholesale;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -13,14 +13,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-
-      public static FirebaseAuth mAuth;
-      private ProgressBar progressBar;
-
+    public static FirebaseAuth mAuth;
+    private ProgressBar progressBar;
     private   EditText UserName;
     private   EditText PassWord;
     @Override
@@ -33,9 +30,14 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
     }
 
+    public static void LogOut() {
+        mAuth.signOut();
+    }
+
     public void AttemptLogin(View view) {
         // Users CurrentUser=new Users(this.UserName.getText().toString(),this.PassWord.getText().toString());
         progressBar.setVisibility(View.VISIBLE);
+        freezLayout(true);
         if (this.UserName.getText().toString().contains("@")) {
             mAuth.signInWithEmailAndPassword(this.UserName.getText().toString(), this.PassWord.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -47,26 +49,29 @@ public class LoginActivity extends AppCompatActivity {
                                 toast.show();
                                 Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
                                 startActivity(itemlist);
-
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Toast toast = Toast.makeText(getApplicationContext(), "LogIn failed", Toast.LENGTH_LONG);
                                 toast.show();
                             }
-                            progressBar.setVisibility(View.GONE);
+
                         }
 
 
                     });
-        } else
-        {
+        } else {
             UserName.setError("Please Enter a Valid Email ID");
-            progressBar.setVisibility(View.GONE);
         }
-
+        progressBar.setVisibility(View.GONE);
+        freezLayout(false);
     }
-    public static void LogOut(){
-        mAuth.signOut();
+
+    private void freezLayout(boolean freez) {
+        /*findViewById(R.id.Button_Login).setEnabled(!freez);
+        findViewById(R.id.Button_Register).setEnabled(!freez);
+        findViewById(R.id.Button_Reset).setEnabled(!freez);
+        UserName.setEnabled(!freez);
+        PassWord.setEnabled(!freez);*/
     }
     private void launchForgotPassword() {
         Intent intent = new Intent(getApplicationContext(),Forgot_Password.class);

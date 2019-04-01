@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
     android:background="@drawable/appbackground">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/DisplayNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_alignParentTop="true"
@@ -25,6 +36,7 @@
         android:hint="@string/user_name"
         android:importantForAutofill="yes"
         tools:layout_editor_absoluteX="33dp" />
+
     <EditText
         android:background="@color/EditTextBackground"
         android:id="@+id/EmailEditText"
@@ -38,8 +50,8 @@
         android:hint="@string/email"
         android:autofillHints="@string/email"
         android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        android:layout_below="@id/DisplayNameEditText"
-         />
+        android:layout_below="@id/DisplayNameEditText" />
+
     <EditText
         android:background="@color/EditTextBackground"
         android:id="@+id/PassWordEditText"
@@ -53,8 +65,8 @@
         android:importantForAutofill="no"
         android:autofillHints="@string/password"
         android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        android:layout_below="@+id/EmailEditText"
-         />
+        android:layout_below="@+id/EmailEditText" />
+
     <EditText
         android:background="@color/EditTextBackground"
         android:id="@+id/AddressEditText"
@@ -70,19 +82,19 @@
         android:autofillHints="@string/adress"
         android:outlineAmbientShadowColor="@color/colorPrimaryDark" />
 
-        <Button
-            android:id="@+id/Button_Register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/register"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/roundbutton"
-            android:layout_below="@id/AddressEditText"
-            android:layout_centerHorizontal="true"
-            android:onClick="Register"
-    />
+    <Button
+        android:id="@+id/Button_Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/roundbutton"
+        android:layout_below="@id/AddressEditText"
+        android:layout_centerHorizontal="true"
+        android:onClick="Register" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -93,13 +105,7 @@
         android:background="@drawable/roundbutton"
         android:layout_below="@id/Button_Register"
         android:layout_centerHorizontal="true"
-        android:onClick="Reset"
-        />
+        android:onClick="Reset" />
 </RelativeLayout>
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"/>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
