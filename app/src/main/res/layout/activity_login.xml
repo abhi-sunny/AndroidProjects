@@ -17,7 +17,7 @@
 
         <EditText
             android:id="@+id/EditText_UserName"
-            android:background="@color/EditTextBackground"
+            android:background="@drawable/roundedittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -32,7 +32,7 @@
 
         <EditText
             android:id="@+id/EditText_Password"
-            android:background="@color/EditTextBackground"
+            android:background="@drawable/roundedittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"

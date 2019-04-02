@@ -31,14 +31,16 @@
         android:layout_marginRight="10dp"
         android:layout_alignParentTop="true"
         android:inputType="text"
-        android:background="@color/EditTextBackground"
+        android:background="@drawable/roundedittext"
+        android:padding="10dp"
         android:autofillHints="@string/user_name"
         android:hint="@string/user_name"
         android:importantForAutofill="yes"
         tools:layout_editor_absoluteX="33dp" />
 
     <EditText
-        android:background="@color/EditTextBackground"
+        android:background="@drawable/roundedittext"
+        android:padding="10dp"
         android:id="@+id/EmailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,7 +55,8 @@
         android:layout_below="@id/DisplayNameEditText" />
 
     <EditText
-        android:background="@color/EditTextBackground"
+        android:background="@drawable/roundedittext"
+        android:padding="10dp"
         android:id="@+id/PassWordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,7 +71,8 @@
         android:layout_below="@+id/EmailEditText" />
 
     <EditText
-        android:background="@color/EditTextBackground"
+        android:background="@drawable/roundedittext"
+        android:padding="10dp"
         android:id="@+id/AddressEditText"
         android:layout_width="match_parent"
         android:layout_height="200dp"
