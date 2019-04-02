@@ -82,7 +82,7 @@
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/roundbutton"
                 android:onClick="Reset"
-                android:text="@string/reset" />
+                android:text="@string/Forgot_password" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
