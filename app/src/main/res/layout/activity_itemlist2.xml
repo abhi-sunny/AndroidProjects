@@ -22,24 +22,25 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:tint="@color/buttonbackground"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_send" />
-
-    <android.support.design.widget.FloatingActionButton
         android:id="@+id/logOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/fab_margin"
-        android:backgroundTint="@color/buttonbackground"
+        android:tint="@color/buttonbackground"
         app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_lock_power_off"
          />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/buttonbackground"
+        android:tint="@color/EditTextBackground"
+        app:srcCompat="@android:drawable/ic_menu_send" />
 
     <ListView
         android:layout_width="match_parent"
