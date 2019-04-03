@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +17,7 @@
 
         <EditText
             android:id="@+id/EditText_UserName"
-            android:background="@color/EditTextBackground"
+            android:background="@drawable/roundedittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -31,7 +32,7 @@
 
         <EditText
             android:id="@+id/EditText_Password"
-            android:background="@color/EditTextBackground"
+            android:background="@drawable/roundedittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -81,7 +82,7 @@
             android:layout_marginBottom="30dp"
             android:background="@drawable/roundbutton"
             android:onClick="Reset"
-            android:text="@string/reset" />
+            android:text="@string/Forgot_password" />
 
         <ProgressBar
             android:id="@+id/progressBar"

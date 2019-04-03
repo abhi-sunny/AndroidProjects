@@ -5,8 +5,7 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="user_name">Name</string>
-    <string name="Forgot_password">Forgot Password</string>
-
+    <string name="Forgot_password">Forgot Password !</string>
     <string name="Mail_sent_text">A mail with reset link have been sent to your mail ID</string>
     <string name="Invalid_mail">Please Enter a valid User Mail</string>
     <string name="title_activity_itemlist2">Products List</string>

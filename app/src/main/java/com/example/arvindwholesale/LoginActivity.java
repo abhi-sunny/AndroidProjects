@@ -27,9 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         UserName = findViewById(R.id.EditText_UserName);
@@ -73,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             });
         } else {
             UserName.setError("Please Enter a Valid Email ID");
+
         }
         freezLayout(false);
         progressBar.setVisibility(View.INVISIBLE);
@@ -102,11 +100,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
         if(mAuth.getCurrentUser() !=null)
         {
-            Toast toast = Toast.makeText(getApplicationContext(),"Valid User: "+ mAuth.getCurrentUser().getDisplayName(),Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Welcome: "+ (
+                            !mAuth.getCurrentUser().getDisplayName().equals("null") ?
+                             mAuth.getCurrentUser().getDisplayName()
+                              :""),Toast.LENGTH_SHORT);
             toast.show();
             Intent itemlist = new Intent(getApplicationContext(),itemlist2.class);
             startActivity(itemlist);

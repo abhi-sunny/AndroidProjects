@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,6 +51,13 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public void Register(View view) {
         CollectionReference userDetails=db.collection("UsersDetails");
+        if(!(PassWord.getText().toString().length()>=6))
+        {
+            PassWord.setError("Password Should be minimum 6 character long");
+            Toast toast = Toast.makeText(getApplicationContext(), "Please Enter Proper Details", Toast.LENGTH_LONG);
+            toast.show();
+            return;
+        }
         if (UserName.getText().toString().contains("@") && !displayName.getText().toString().equals("") && !PassWord.getText().toString().equals("") && !Address.getText().toString() .equals("")) {
             progressBar.setVisibility(View.VISIBLE);
             mAuth.createUserWithEmailAndPassword(this.UserName.getText().toString(), this.PassWord.getText().toString())
@@ -65,14 +73,16 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast toast = Toast.makeText(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG);
                                 toast.show();
                                 onBackPressed();
-                            } else {
-                                // If sign Up fails, display a message to the user.
-                                Toast toast = Toast.makeText(getApplicationContext(), "SignUP failed", Toast.LENGTH_LONG);
-                                toast.show();
                             }
                             progressBar.setVisibility(View.GONE);
                         }
-                    });
+                    }).addOnFailureListener(this, new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "SignUP failed, "+e.getMessage(), Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            });
         } else
         {
             Toast toast = Toast.makeText(getApplicationContext(), "Please Enter Proper Details", Toast.LENGTH_LONG);
