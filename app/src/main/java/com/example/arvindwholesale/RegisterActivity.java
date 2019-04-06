@@ -1,5 +1,6 @@
 package com.example.arvindwholesale;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -69,8 +70,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                         .setDisplayName(displayName.getText().toString())
                                         .build();
-                                user.updateProfile(profileUpdates);
+                                if(user.updateProfile(profileUpdates).isSuccessful())
+                            Toast.makeText(getApplicationContext(), "Profile update Success", Toast.LENGTH_LONG).show();
                                 Toast toast = Toast.makeText(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG);
+
                                 toast.show();
                                 onBackPressed();
                             }

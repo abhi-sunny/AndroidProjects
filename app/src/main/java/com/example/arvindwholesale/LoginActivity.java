@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -50,6 +51,10 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Toast toast = Toast.makeText(getApplicationContext(), "LogIn Success", Toast.LENGTH_LONG);
+                                View v=toast.getView();
+                                v.setBackground(UserName.getBackground());
+                                toast.setView(v);
+                                toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
                                 toast.show();
                                 Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
                                 startActivity(itemlist);
@@ -105,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         if(mAuth.getCurrentUser() !=null)
         {
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Welcome: "+ (
+                    "Welcome: "+ (mAuth.getCurrentUser().getDisplayName()!=null &&
                             !mAuth.getCurrentUser().getDisplayName().equals("null") ?
                              mAuth.getCurrentUser().getDisplayName()
                               :""),Toast.LENGTH_SHORT);

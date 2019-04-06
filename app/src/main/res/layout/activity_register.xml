@@ -8,7 +8,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layerType="hardware"
+        >
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -84,7 +86,8 @@
         android:importantForAutofill="yes"
         android:inputType="textMultiLine"
         android:autofillHints="@string/adress"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark" />
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+        />
 
     <Button
         android:id="@+id/Button_Register"
@@ -106,6 +109,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/roundbutton"
         android:layout_below="@id/Button_Register"
         android:layout_centerHorizontal="true"
