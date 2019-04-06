@@ -5,7 +5,7 @@
     <color name="colorAccent">#050505</color>
     <color name="Error">#F80202</color>
     <color name="EditTextBackground">#E8F5E9</color>
-    <color name="Appbackground">#FFCC80</color>
+    <color name="Appbackground">#03A9F4</color>
     <color name="buttonbackground">#FF9800</color>
     <color name="ToastGoodColor">#E6EE9C</color>
     <color name="ToastBadColor">#FFAB91</color>
