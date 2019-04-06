@@ -50,12 +50,14 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Toast toast = Toast.makeText(getApplicationContext(), "LogIn Success", Toast.LENGTH_LONG);
+                                /*Toast toast = Toast.makeText(getApplicationContext(), "LogIn Success", Toast.LENGTH_LONG);
                                 View v=toast.getView();
                                 v.setBackground(UserName.getBackground());
                                 toast.setView(v);
                                 toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
-                                toast.show();
+                                toast.show();*/
+                                CustomToast C=new CustomToast(getApplicationContext()," Custom Toast Success",Toast.LENGTH_LONG,true);
+                                C.T.show();
                                 Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
                                 startActivity(itemlist);
                             }
@@ -87,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.Button_Reset).setEnabled(!freez);
         UserName.setEnabled(!freez);
         PassWord.setEnabled(!freez);
+
+
     }
     private void launchForgotPassword() {
         Intent intent = new Intent(getApplicationContext(),Forgot_Password.class);
