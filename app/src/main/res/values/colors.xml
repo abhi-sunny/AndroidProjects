@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#050505</color>
     <color name="Error">#F80202</color>
-    <color name="EditTextBackground">#FCFCFC</color>
-    <color name="Appbackground">#009688</color>
+    <color name="EditTextBackground">#E8F5E9</color>
+    <color name="Appbackground">#FFCC80</color>
     <color name="buttonbackground">#FF9800</color>
-    <color name="ToastGoodColor">#65F16B</color>
-    <color name="ToastBadColor">#EF5350</color>
+    <color name="ToastGoodColor">#E6EE9C</color>
+    <color name="ToastBadColor">#FFAB91</color>
 </resources>
