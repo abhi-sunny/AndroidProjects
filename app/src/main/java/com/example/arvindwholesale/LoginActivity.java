@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -23,8 +20,13 @@ public class LoginActivity extends AppCompatActivity {
 
     public static FirebaseAuth mAuth;
     private ProgressBar progressBar;
-    private   EditText UserName;
-    private   EditText PassWord;
+    private EditText UserName;
+    private EditText PassWord;
+
+    public static void LogOut() {
+        mAuth.signOut();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         UserName = findViewById(R.id.EditText_UserName);
         PassWord = findViewById(R.id.EditText_Password);
         progressBar = findViewById(R.id.progressBar);
-    }
-
-    public static void LogOut() {
-        mAuth.signOut();
     }
 
     public void AttemptLogin(View view) {
@@ -49,14 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                /*Toast toast = Toast.makeText(getApplicationContext(), "LogIn Success", Toast.LENGTH_LONG);
-                                View v=toast.getView();
-                                v.setBackground(UserName.getBackground());
-                                toast.setView(v);
-                                toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
-                                toast.show();*/
-                                CustomToast C=new CustomToast(getApplicationContext()," Custom Toast Success",Toast.LENGTH_LONG,true);
+                                CustomToast C = new CustomToast(getApplicationContext(), " Custom Toast Success", Toast.LENGTH_LONG, true);
                                 C.T.show();
                                 Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
                                 startActivity(itemlist);
@@ -65,19 +56,18 @@ public class LoginActivity extends AppCompatActivity {
                     }).addOnFailureListener(this, new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "LogIn failed," + e.getMessage(), Toast.LENGTH_LONG);
-                    toast.show();
+                    CustomToast C = new CustomToast(getApplicationContext(), "LogIn failed," + e.getMessage(), Toast.LENGTH_LONG, false);
+                    C.T.show();
                 }
             }).addOnCanceledListener(this, new OnCanceledListener() {
                 @Override
                 public void onCanceled() {
-                    Toast toast = Toast.makeText(getApplicationContext(), "LogIn failed,", Toast.LENGTH_LONG);
-                    toast.show();
+                    CustomToast C = new CustomToast(getApplicationContext(), "LogIn failed,", Toast.LENGTH_LONG, false);
+                    C.T.show();
                 }
             });
         } else {
             UserName.setError("Please Enter a Valid Email ID");
-
         }
         freezLayout(false);
         progressBar.setVisibility(View.INVISIBLE);
@@ -92,34 +82,33 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
     private void launchForgotPassword() {
-        Intent intent = new Intent(getApplicationContext(),Forgot_Password.class);
+        Intent intent = new Intent(getApplicationContext(), Forgot_Password.class);
         startActivity(intent);
     }
-    public void Register(View view)
-    {
+
+    public void Register(View view) {
         mAuth.signOut();
-        Intent Register = new Intent(getApplicationContext(),RegisterActivity.class);
+        Intent Register = new Intent(getApplicationContext(), RegisterActivity.class);
         startActivity(Register);
     }
 
-    public void Reset(View view)
-    {
+    public void Reset(View view) {
         this.launchForgotPassword();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if(mAuth.getCurrentUser() !=null)
-        {
+        if (mAuth.getCurrentUser() != null) {
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Welcome: "+ (mAuth.getCurrentUser().getDisplayName()!=null &&
+                    "Welcome: " + (mAuth.getCurrentUser().getDisplayName() != null &&
                             !mAuth.getCurrentUser().getDisplayName().equals("null") ?
-                             mAuth.getCurrentUser().getDisplayName()
-                              :""),Toast.LENGTH_SHORT);
+                            mAuth.getCurrentUser().getDisplayName()
+                            : ""), Toast.LENGTH_SHORT);
             toast.show();
-            Intent itemlist = new Intent(getApplicationContext(),itemlist2.class);
+            Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
             startActivity(itemlist);
         }
     }

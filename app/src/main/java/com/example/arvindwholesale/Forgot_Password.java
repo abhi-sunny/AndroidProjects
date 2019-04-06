@@ -14,52 +14,48 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Forgot_Password extends AppCompatActivity {
- FirebaseAuth mAuth;
- EditText username;
- Button Reset;
- TextView UserInteraction;
+    FirebaseAuth mAuth;
+    EditText username;
+    Button Reset;
+    TextView UserInteraction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot__password);
-        Reset=findViewById(R.id.Button_Reset);
-        UserInteraction=findViewById(R.id.userInterraction);
-        mAuth= FirebaseAuth.getInstance();
-        username=findViewById(R.id.EditText_EmailID);
+        Reset = findViewById(R.id.Button_Reset);
+        UserInteraction = findViewById(R.id.userInterraction);
+        mAuth = FirebaseAuth.getInstance();
+        username = findViewById(R.id.EditText_EmailID);
     }
 
     public void Reset(View view) {
-       if(username.getText().toString().equals("") || !username.getText().toString().contains("@")) {
-           username.setError("Enter a Valid Register Email ID");
-           return;
-       }
+        if (username.getText().toString().equals("") || !username.getText().toString().contains("@")) {
+            username.setError("Enter a Valid Register Email ID");
+            return;
+        }
         UserInteraction.setVisibility(View.INVISIBLE);
-       username.setEnabled(false);
+        username.setEnabled(false);
         mAuth.sendPasswordResetEmail(username.getText().toString().trim()).addOnCompleteListener(this,
-                new OnCompleteListener<Void>(){
-            @Override
-            public void onComplete(@NonNull Task<Void> task)
-            {
-                if(task.isSuccessful())
-                {
-                    Reset.setVisibility(View.INVISIBLE);
-                    UserInteraction.setVisibility(View.VISIBLE);
-                    UserInteraction.setText(getString(R.string.Mail_sent_text));
-                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                    {
-                      UserInteraction.setBackgroundColor(getColor(R.color.colorPrimary));
+                new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Reset.setVisibility(View.INVISIBLE);
+                            UserInteraction.setVisibility(View.VISIBLE);
+                            UserInteraction.setText(getString(R.string.Mail_sent_text));
+                            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                UserInteraction.setBackgroundColor(getColor(R.color.colorPrimary));
+                            }
+                        } else {
+                            UserInteraction.setText(getString(R.string.Invalid_mail));
+                            UserInteraction.setVisibility(View.VISIBLE);
+                            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                UserInteraction.setBackgroundColor(getColor(R.color.Error));
+                            }
+                            username.setEnabled(true);
+                        }
                     }
-                }else
-                {
-                    UserInteraction.setText(getString(R.string.Invalid_mail));
-                    UserInteraction.setVisibility(View.VISIBLE);
-                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                    {
-                        UserInteraction.setBackgroundColor(getColor(R.color.Error));
-                    }
-                    username.setEnabled(true);
-                }
-            }
-        });
+                });
     }
 }

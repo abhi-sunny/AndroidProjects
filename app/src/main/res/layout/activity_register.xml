@@ -3,117 +3,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="@drawable/appbackground">
+    android:background="@drawable/appbackground"
+    tools:context=".RegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layerType="hardware"
-        >
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+        android:layerType="hardware">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/DisplayNameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_alignParentTop="true"
-        android:inputType="text"
-        android:background="@drawable/roundedittext"
-        android:padding="10dp"
-        android:autofillHints="@string/user_name"
-        android:hint="@string/user_name"
-        android:importantForAutofill="yes"
-        tools:layout_editor_absoluteX="33dp" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone" />
 
-    <EditText
-        android:background="@drawable/roundedittext"
-        android:padding="10dp"
-        android:id="@+id/EmailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textEmailAddress"
-        android:importantForAutofill="yes"
-        android:hint="@string/email"
-        android:autofillHints="@string/email"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        android:layout_below="@id/DisplayNameEditText" />
+            <EditText
+                android:id="@+id/DisplayNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="10dp"
+                android:autofillHints="@string/user_name"
+                android:background="@drawable/roundedittext"
+                android:hint="@string/user_name"
+                android:importantForAutofill="yes"
+                android:inputType="text"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="33dp" />
 
-    <EditText
-        android:background="@drawable/roundedittext"
-        android:padding="10dp"
-        android:id="@+id/PassWordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:importantForAutofill="no"
-        android:autofillHints="@string/password"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        android:layout_below="@+id/EmailEditText" />
+            <EditText
+                android:id="@+id/EmailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/DisplayNameEditText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:autofillHints="@string/email"
+                android:background="@drawable/roundedittext"
+                android:hint="@string/email"
+                android:importantForAutofill="yes"
+                android:inputType="textEmailAddress"
+                android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+                android:padding="10dp" />
 
-    <EditText
-        android:background="@drawable/roundedittext"
-        android:padding="10dp"
-        android:id="@+id/AddressEditText"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/PassWordEditText"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
-        android:hint="@string/adress"
-        android:importantForAutofill="yes"
-        android:inputType="textMultiLine"
-        android:autofillHints="@string/adress"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        />
+            <EditText
+                android:id="@+id/PassWordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EmailEditText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:autofillHints="@string/password"
+                android:background="@drawable/roundedittext"
+                android:hint="@string/password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:padding="10dp" />
 
-    <Button
-        android:id="@+id/Button_Register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/roundbutton"
-        android:layout_below="@id/AddressEditText"
-        android:layout_centerHorizontal="true"
-        android:onClick="Register" />
+            <EditText
+                android:id="@+id/AddressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/PassWordEditText"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:autofillHints="@string/adress"
+                android:background="@drawable/roundedittext"
+                android:hint="@string/adress"
+                android:importantForAutofill="yes"
+                android:inputType="textMultiLine"
+                android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+                android:padding="10dp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/reset"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/roundbutton"
-        android:layout_below="@id/Button_Register"
-        android:layout_centerHorizontal="true"
-        android:onClick="Reset" />
-</RelativeLayout>
+            <Button
+                android:id="@+id/Button_Register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/AddressEditText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/roundbutton"
+                android:onClick="Register"
+                android:text="@string/register" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Button_Register"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/roundbutton"
+                android:onClick="Reset"
+                android:text="@string/reset" />
+        </RelativeLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

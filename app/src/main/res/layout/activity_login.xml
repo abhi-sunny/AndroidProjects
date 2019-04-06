@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:background="@drawable/appbackground">
+    android:background="@drawable/appbackground"
+    tools:context=".LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/EditText_UserName"
-            android:background="@drawable/roundedittext"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:hint="@string/email"
-            android:autofillHints="@string/email"
+            android:orientation="horizontal">
 
-            android:inputType="textEmailAddress" />
+            <EditText
+                android:id="@+id/EditText_UserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints="@string/email"
+                android:background="@drawable/roundedittext"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
 
-        <EditText
-            android:id="@+id/EditText_Password"
-            android:background="@drawable/roundedittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_below="@+id/EditText_UserName"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:inputType="textPassword"
-            android:autofillHints="@string/password"
-            android:hint="@string/password" />
+                android:padding="10dp" />
 
-        <Button
+            <EditText
+                android:id="@+id/EditText_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditText_UserName"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints="@string/password"
+                android:background="@drawable/roundedittext"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="10dp" />
 
-            android:id="@+id/Button_Login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/EditText_Password"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/roundbutton"
-            android:onClick="AttemptLogin"
-            android:text="@string/login" />
+            <Button
 
-        <Button
-            android:id="@+id/Button_Register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Button_Login"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/roundbutton"
-            android:onClick="Register"
-            android:text="@string/register" />
+                android:id="@+id/Button_Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditText_Password"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/roundbutton"
+                android:onClick="AttemptLogin"
+                android:text="@string/login" />
+
+            <Button
+                android:id="@+id/Button_Register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Button_Login"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/roundbutton"
+                android:onClick="Register"
+                android:text="@string/register" />
 
 
-        <Button
-            android:id="@+id/Button_Reset"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Button_Register"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/roundbutton"
-            android:onClick="Reset"
-            android:text="@string/Forgot_password" />
+            <Button
+                android:id="@+id/Button_Reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Button_Register"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/roundbutton"
+                android:onClick="Reset"
+                android:text="@string/Forgot_password" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="clip_horizontal"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone" />
-    </RelativeLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="clip_horizontal"
+                android:visibility="gone" />
+        </RelativeLayout>
 
     </ScrollView>
 </android.support.design.widget.CoordinatorLayout>
