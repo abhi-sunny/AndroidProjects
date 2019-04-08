@@ -14,16 +14,12 @@
         <activity
             android:name=".RegisterActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".itemlist2"
             android:label="@string/title_activity_itemlist2"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Forgot_Password"
             android:label="@string/Forgot_password"
@@ -46,4 +42,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
