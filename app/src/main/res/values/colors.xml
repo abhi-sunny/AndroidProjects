@@ -7,6 +7,6 @@
     <color name="EditTextBackground">#E8F5E9</color>
     <color name="Appbackground">#03A9F4</color>
     <color name="buttonbackground">#FF9800</color>
-    <color name="ToastGoodColor">#E6EE9C</color>
-    <color name="ToastBadColor">#FFAB91</color>
+    <color name="ToastGoodColor">#8BC34A</color>
+    <color name="ToastBadColor">#F44336</color>
 </resources>
