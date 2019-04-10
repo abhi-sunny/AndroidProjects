@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     public void AttemptLogin(View view) {
         progressBar.setVisibility(View.VISIBLE);
         freezLayout(true);
+        //enableViews(view,true);
         if (this.UserName.getText().toString().contains("@")) {
             mAuth.signInWithEmailAndPassword(this.UserName.getText().toString(), this.PassWord.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -57,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onFailure(@NonNull Exception e) {
                     CustomToast C = new CustomToast(getApplicationContext(), "LogIn failed," + e.getMessage(), Toast.LENGTH_LONG, false);
                     C.T.show();
+                    freezLayout(false);
                 }
             }).addOnCanceledListener(this, new OnCanceledListener() {
                 @Override
@@ -67,8 +70,9 @@ public class LoginActivity extends AppCompatActivity {
             });
         } else {
             UserName.setError("Please Enter a Valid Email ID");
+            freezLayout(false);
         }
-        freezLayout(false);
+
         progressBar.setVisibility(View.INVISIBLE);
     }
 
@@ -78,8 +82,17 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.Button_Reset).setEnabled(!freez);
         UserName.setEnabled(!freez);
         PassWord.setEnabled(!freez);
+    }
 
-
+    private void enableViews(View v, boolean enabled) {
+        if (v instanceof ViewGroup) {
+            ViewGroup vg = (ViewGroup) v;
+            for (int i = 0; i < vg.getChildCount(); i++) {
+                enableViews(vg.getChildAt(i), enabled);
+                Toast.makeText(getApplicationContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
+            }
+        }
+        v.setEnabled(enabled);
     }
 
     private void launchForgotPassword() {
