@@ -38,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void AttemptLogin(View view) {
-        // Users CurrentUser=new Users(this.UserName.getText().toString(),this.PassWord.getText().toString());
         progressBar.setVisibility(View.VISIBLE);
         freezLayout(true);
         if (this.UserName.getText().toString().contains("@")) {
@@ -111,5 +110,10 @@ public class LoginActivity extends AppCompatActivity {
             Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
             startActivity(itemlist);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
     }
 }
