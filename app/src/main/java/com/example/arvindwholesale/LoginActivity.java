@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -82,17 +81,6 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.Button_Reset).setEnabled(!freez);
         UserName.setEnabled(!freez);
         PassWord.setEnabled(!freez);
-    }
-
-    private void enableViews(View v, boolean enabled) {
-        if (v instanceof ViewGroup) {
-            ViewGroup vg = (ViewGroup) v;
-            for (int i = 0; i < vg.getChildCount(); i++) {
-                enableViews(vg.getChildAt(i), enabled);
-                Toast.makeText(getApplicationContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
-            }
-        }
-        v.setEnabled(enabled);
     }
 
     private void launchForgotPassword() {
