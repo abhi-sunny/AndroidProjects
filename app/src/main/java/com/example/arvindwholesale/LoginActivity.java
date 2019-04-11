@@ -38,16 +38,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void AttemptLogin(View view) {
-        // Users CurrentUser=new Users(this.UserName.getText().toString(),this.PassWord.getText().toString());
         progressBar.setVisibility(View.VISIBLE);
         freezLayout(true);
-        if (this.UserName.getText().toString().contains("@")) {
+        //enableViews(view,true);
+        if (this.UserName.getText().toString().contains("@") && !(this.PassWord.getText().length() < 6)) {
             mAuth.signInWithEmailAndPassword(this.UserName.getText().toString(), this.PassWord.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                CustomToast C = new CustomToast(getApplicationContext(), " Custom Toast Success", Toast.LENGTH_LONG, true);
+                                CustomToast C = new CustomToast(getApplicationContext(),
+                                        "Welcome: " + (mAuth.getCurrentUser().getDisplayName() != null &&
+                                                !mAuth.getCurrentUser().getDisplayName().equals("null") ?
+                                                mAuth.getCurrentUser().getDisplayName()
+                                                : ""), Toast.LENGTH_LONG, true);
                                 C.T.show();
                                 Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
                                 startActivity(itemlist);
@@ -58,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onFailure(@NonNull Exception e) {
                     CustomToast C = new CustomToast(getApplicationContext(), "LogIn failed," + e.getMessage(), Toast.LENGTH_LONG, false);
                     C.T.show();
+                    freezLayout(false);
                 }
             }).addOnCanceledListener(this, new OnCanceledListener() {
                 @Override
@@ -68,8 +73,10 @@ public class LoginActivity extends AppCompatActivity {
             });
         } else {
             UserName.setError("Please Enter a Valid Email ID");
+
+            freezLayout(false);
         }
-        freezLayout(false);
+
         progressBar.setVisibility(View.INVISIBLE);
     }
 
@@ -79,8 +86,6 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.Button_Reset).setEnabled(!freez);
         UserName.setEnabled(!freez);
         PassWord.setEnabled(!freez);
-
-
     }
 
     private void launchForgotPassword() {
