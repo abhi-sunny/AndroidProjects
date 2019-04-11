@@ -54,8 +54,8 @@ public class RegisterActivity extends AppCompatActivity {
         CollectionReference userDetails = db.collection("UsersDetails");
         if (!(PassWord.getText().toString().length() >= 6)) {
             PassWord.setError("Password Should be minimum 6 character long");
-            Toast toast = Toast.makeText(getApplicationContext(), "Please Enter Proper Details", Toast.LENGTH_LONG);
-            toast.show();
+            CustomToast cT = new CustomToast(getApplicationContext(), "Password Should be minimum 6 character long", Toast.LENGTH_LONG, false);
+            cT.T.show();
             return;
         }
         if (UserName.getText().toString().contains("@") && !displayName.getText().toString().equals("") && !PassWord.getText().toString().equals("") && !Address.getText().toString().equals("")) {
@@ -70,11 +70,15 @@ public class RegisterActivity extends AppCompatActivity {
                                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                         .setDisplayName(displayName.getText().toString())
                                         .build();
-                                if (user.updateProfile(profileUpdates).isSuccessful())
-                                    Toast.makeText(getApplicationContext(), "Profile update Success", Toast.LENGTH_LONG).show();
-                                Toast toast = Toast.makeText(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG);
-
-                                toast.show();
+                                user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        CustomToast cT = new CustomToast(getApplicationContext(), "Updated Name", Toast.LENGTH_LONG, true);
+                                        cT.T.show();
+                                    }
+                                });
+                                CustomToast cT = new CustomToast(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG, false);
+                                cT.T.show();
                                 onBackPressed();
                             }
                             progressBar.setVisibility(View.GONE);
@@ -82,8 +86,8 @@ public class RegisterActivity extends AppCompatActivity {
                     }).addOnFailureListener(this, new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "SignUP failed, " + e.getMessage(), Toast.LENGTH_LONG);
-                    toast.show();
+                    CustomToast cT = new CustomToast(getApplicationContext(), "SignUP failed, " + e.getMessage(), Toast.LENGTH_LONG, false);
+                    cT.T.show();
                 }
             });
         } else {
