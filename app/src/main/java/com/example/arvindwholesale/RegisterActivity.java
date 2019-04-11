@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         cT.T.show();
                                     }
                                 });
-                                CustomToast cT = new CustomToast(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG, false);
+                                CustomToast cT = new CustomToast(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG, true);
                                 cT.T.show();
                                 onBackPressed();
                             }
@@ -91,8 +91,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Please Enter Proper Details", Toast.LENGTH_LONG);
-            toast.show();
+            CustomToast cT = new CustomToast(getApplicationContext(), "Enter Proper Details", Toast.LENGTH_LONG, false);
+            cT.T.show();
         }
     }
 }

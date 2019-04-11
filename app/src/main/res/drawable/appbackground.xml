@@ -1,8 +1,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="#FFC107" />
     <gradient
-        android:angle="135"
-        android:centerColor="@color/EditTextBackground"
+        android:angle="225"
+        android:centerColor="@color/Error"
         android:centerX="-1"
         android:endColor="@color/Appbackground">
     </gradient>
