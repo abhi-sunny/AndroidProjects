@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             });
         } else {
             UserName.setError("Please Enter a Valid Email ID");
-
+            PassWord.setError("कृपया उचित पासवर्ड दर्ज करें");
             freezLayout(false);
         }
 
@@ -107,12 +107,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() != null) {
-            Toast toast = Toast.makeText(getApplicationContext(),
+            CustomToast cT = new CustomToast(getApplicationContext(),
                     "Welcome: " + (mAuth.getCurrentUser().getDisplayName() != null &&
                             !mAuth.getCurrentUser().getDisplayName().equals("null") ?
                             mAuth.getCurrentUser().getDisplayName()
-                            : ""), Toast.LENGTH_SHORT);
-            toast.show();
+                            : ""), Toast.LENGTH_LONG, false);
+            cT.T.show();
             Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
             startActivity(itemlist);
         }

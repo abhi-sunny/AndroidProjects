@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00BCD4</color>
-    <color name="colorPrimaryDark">#2196F3</color>
-    <color name="colorAccent">#03A9F4</color>
+    <color name="colorPrimary">#01635A</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#050505</color>
     <color name="Error">#F80202</color>
-    <color name="EditTextBackground">#FFFFFF</color>
-    <color name="Appbackground">#0A0A0A</color>
-    <color name="buttonbackground">#FFD600</color>
-    <color name="ToastGoodColor">#808BC34A</color>
-    <color name="ToastBadColor">#80F44336</color>
+    <color name="EditTextBackground">#80E8F5E9</color>
+    <color name="Appbackground">#03A9F4</color>
+    <color name="buttonbackground">#FF9800</color>
+    <color name="ToastGoodColor">#8BC34A</color>
+    <color name="ToastBadColor">#F44336</color>
 </resources>

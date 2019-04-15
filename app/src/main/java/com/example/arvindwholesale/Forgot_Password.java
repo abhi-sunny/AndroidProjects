@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,7 +17,6 @@ public class Forgot_Password extends AppCompatActivity {
     FirebaseAuth mAuth;
     EditText username;
     Button Reset;
-    TextView UserInteraction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +30,8 @@ public class Forgot_Password extends AppCompatActivity {
     public void Reset(View view) {
         if (username.getText().toString().equals("") || !username.getText().toString().contains("@")) {
             username.setError("Enter a Valid Register Email ID");
+            CustomToast cT = new CustomToast(getApplicationContext(), "Enter a Valid Register Email ID", Toast.LENGTH_LONG, false);
+            cT.T.show();
             return;
         }
         username.setEnabled(false);
@@ -50,6 +50,7 @@ public class Forgot_Password extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 CustomToast cT = new CustomToast(getApplicationContext(), "Mail can not be sent, Reason" + e.getMessage(), Toast.LENGTH_LONG, false);
                 cT.T.show();
+                username.setEnabled(true);
             }
         });
     }

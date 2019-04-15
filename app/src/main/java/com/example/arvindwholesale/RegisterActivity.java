@@ -15,6 +15,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText UserName;
@@ -23,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText Address;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
-    //private FirebaseFirestore db;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         Address = findViewById(R.id.AddressEditText);
         mAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
-        //db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
     }
 
     public void Reset(View view) {
@@ -48,63 +50,49 @@ public class RegisterActivity extends AppCompatActivity {
         toast.show();
     }
 
-    private void freezeLayout(boolean freez) {
-        try {
-            UserName.setEnabled(!freez);
-            PassWord.setEnabled(!freez);
-            displayName.setEnabled(!freez);
-            Address.setEnabled(!freez);
-            findViewById(R.id.Button_Register).setEnabled(!freez);
-            findViewById(R.id.Button_Reset).setEnabled(!freez);
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-        }
-    }
-
     public void Register(View view) {
-        //CollectionReference userDetails = db.collection("UsersDetails");
+        CollectionReference userDetails = db.collection("UsersDetails");
         if (!(PassWord.getText().toString().length() >= 6)) {
             PassWord.setError("Password Should be minimum 6 character long");
-            Toast toast = Toast.makeText(getApplicationContext(), "Please Enter Proper Details", Toast.LENGTH_LONG);
-            toast.show();
+            CustomToast cT = new CustomToast(getApplicationContext(), "Password Should be minimum 6 character long", Toast.LENGTH_LONG, false);
+            cT.T.show();
             return;
         }
         if (UserName.getText().toString().contains("@") && !displayName.getText().toString().equals("") && !PassWord.getText().toString().equals("") && !Address.getText().toString().equals("")) {
             progressBar.setVisibility(View.VISIBLE);
-            freezeLayout(true);
-            try {
-                mAuth.createUserWithEmailAndPassword(this.UserName.getText().toString(), this.PassWord.getText().toString())
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                            .setDisplayName(displayName.getText().toString())
-                                            .build();
-                                    if (user.updateProfile(profileUpdates).isSuccessful())
-                                        Toast.makeText(getApplicationContext(), "Profile update Success", Toast.LENGTH_LONG).show();
-                                    Toast toast = Toast.makeText(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG);
-                                    toast.show();
-                                    onBackPressed();
-                                }
-                                progressBar.setVisibility(View.GONE);
-                                freezeLayout(false);
+            mAuth.createUserWithEmailAndPassword(this.UserName.getText().toString(), this.PassWord.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(displayName.getText().toString())
+                                        .build();
+                                user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        CustomToast cT = new CustomToast(getApplicationContext(), "Updated Name", Toast.LENGTH_LONG, true);
+                                        cT.T.show();
+                                    }
+                                });
+                                CustomToast cT = new CustomToast(getApplicationContext(), "SignUP Success", Toast.LENGTH_LONG, true);
+                                cT.T.show();
+                                onBackPressed();
                             }
-                        }).addOnFailureListener(this, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "SignUP failed, " + e.getMessage(), Toast.LENGTH_LONG);
-                        toast.show();
-                    }
-                });
-            } catch (Exception e) {
-                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-            }
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }).addOnFailureListener(this, new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    CustomToast cT = new CustomToast(getApplicationContext(), "SignUP failed, " + e.getMessage(), Toast.LENGTH_LONG, false);
+                    cT.T.show();
+                }
+            });
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Please Enter Proper Details", Toast.LENGTH_LONG);
-            toast.show();
+            CustomToast cT = new CustomToast(getApplicationContext(), "Enter Proper Details", Toast.LENGTH_LONG, false);
+            cT.T.show();
         }
     }
 }
