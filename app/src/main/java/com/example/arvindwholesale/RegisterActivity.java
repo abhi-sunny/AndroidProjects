@@ -46,8 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
         PassWord.setText("");
         displayName.setText("");
         Address.setText("");
-        Toast toast = Toast.makeText(getApplicationContext(), "All Fields Cleared", Toast.LENGTH_LONG);
-        toast.show();
+        CustomToast cT = new CustomToast(getApplicationContext(), "All fields cleared", Toast.LENGTH_LONG, true);
+        cT.T.show();
     }
 
     public void Register(View view) {
