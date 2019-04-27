@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                     "Welcome: " + (mAuth.getCurrentUser().getDisplayName() != null &&
                             !mAuth.getCurrentUser().getDisplayName().equals("null") ?
                             mAuth.getCurrentUser().getDisplayName()
-                            : ""), Toast.LENGTH_LONG, false);
+                            : ""), Toast.LENGTH_LONG, true);
             cT.T.show();
             Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
             startActivity(itemlist);

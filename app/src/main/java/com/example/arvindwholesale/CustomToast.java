@@ -11,9 +11,9 @@ class CustomToast {
         Toast toast = Toast.makeText(context, message, Length);
         View v = toast.getView();
         if (good)
-            v.setBackgroundResource(R.drawable.toastbackgood);
+            v.setBackgroundResource(R.drawable.toastBackGood);
         if (!good)
-            v.setBackgroundResource(R.drawable.toastbackbad);
+            v.setBackgroundResource(R.drawable.toastBackBad);
         toast.setView(v);
         //toast.setGravity(Gravity.CLIP_VERTICAL, 0, 0);
         T = toast;

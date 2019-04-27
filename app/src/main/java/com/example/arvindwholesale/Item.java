@@ -7,4 +7,5 @@ public class Item {
     private String itemImageUri = "";
     private int itemQuantity = 0;
 
+
 }
