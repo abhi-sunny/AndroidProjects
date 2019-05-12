@@ -10,6 +10,8 @@
     <string name="Invalid_mail">Please Enter a valid User Mail</string>
     <string name="title_activity_itemlist2">Products List</string>
     <string name="email">Email</string>
-    <string name="adress">Address</string>
-    <string name="title_activity_add_item">AddItemActivity</string>
+    <string name="address">Address</string>
+    <string name="item_name">Item Name</string>
+    <string name="title_activity_add_update_item">addUpdateItem</string>
+    <string name="category">Category</string>
 </resources>

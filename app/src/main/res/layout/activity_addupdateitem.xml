@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/appbackground"
-    tools:context=".RegisterActivity">
+    tools:context=".addupdateitem">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,73 +24,41 @@
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/DisplayNameEditText"
+                android:id="@+id/ItemNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginRight="10dp"
-                android:autofillHints="@string/user_name"
+                android:autofillHints="@string/item_name"
                 android:background="@drawable/roundedittext"
-                android:hint="@string/user_name"
+                android:hint="@string/item_name"
                 android:importantForAutofill="yes"
                 android:inputType="text"
                 android:padding="10dp"
                 tools:layout_editor_absoluteX="33dp" />
 
             <EditText
-                android:id="@+id/EmailEditText"
+                android:id="@+id/ItemCategoory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/DisplayNameEditText"
+                android:layout_below="@id/ItemNameEditText"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:autofillHints="@string/email"
                 android:background="@drawable/roundedittext"
-                android:hint="@string/email"
-                android:importantForAutofill="yes"
+                android:hint="@string/category"
                 android:inputType="textEmailAddress"
                 android:outlineAmbientShadowColor="@color/colorPrimaryDark"
                 android:padding="10dp" />
 
-            <EditText
-                android:id="@+id/PassWordEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/EmailEditText"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="10dp"
-                android:autofillHints="@string/password"
-                android:background="@drawable/roundedittext"
-                android:hint="@string/password"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:padding="10dp" />
-
-            <EditText
-                android:id="@+id/AddressEditText"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_below="@+id/PassWordEditText"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="10dp"
-                android:autofillHints="@string/address"
-                android:background="@drawable/roundedittext"
-                android:hint="@string/address"
-                android:importantForAutofill="yes"
-                android:inputType="textMultiLine"
-                android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-                android:padding="10dp" />
 
             <Button
                 android:id="@+id/Button_Register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/AddressEditText"
+                android:layout_below="@id/ItemCategoory"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
@@ -101,6 +68,7 @@
                 android:text="@string/register" />
 
             <Button
+                android:id="@+id/Button_Reset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/Button_Register"
@@ -112,6 +80,12 @@
                 android:background="@drawable/roundbutton"
                 android:onClick="Reset"
                 android:text="@string/reset" />
+
+            <ImageView
+                android:id="@+id/ImageView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/Button_Reset" />
         </RelativeLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
