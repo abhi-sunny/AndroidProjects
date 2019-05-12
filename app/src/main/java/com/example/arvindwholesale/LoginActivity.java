@@ -47,14 +47,18 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                CustomToast C = new CustomToast(getApplicationContext(),
+                                new CustomToast(getApplicationContext(),
                                         "Welcome: " + (mAuth.getCurrentUser().getDisplayName() != null &&
                                                 !mAuth.getCurrentUser().getDisplayName().equals("null") ?
                                                 mAuth.getCurrentUser().getDisplayName()
                                                 : ""), Toast.LENGTH_LONG, true);
-                                C.T.show();
+                                if(UserName.getText().toString().toLowerCase().equals("chauhana089@gmail.com")){
+                                    Intent AdminPanel = new Intent(getApplicationContext(), AdminPanel.class);
+                                    startActivity(AdminPanel);
+                                }else{
                                 Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
                                 startActivity(itemlist);
+                                }
                             }
                         }
                     }).addOnFailureListener(this, new OnFailureListener() {
@@ -107,15 +111,18 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() != null) {
-            CustomToast cT = new CustomToast(getApplicationContext(),
+            new CustomToast(getApplicationContext(),
                     "Welcome: " + (mAuth.getCurrentUser().getDisplayName() != null &&
                             !mAuth.getCurrentUser().getDisplayName().equals("null") ?
                             mAuth.getCurrentUser().getDisplayName()
                             : ""), Toast.LENGTH_LONG, true);
-            cT.T.show();
-            Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
-            startActivity(itemlist);
-        }
+            if(UserName.getText().toString().toLowerCase().equals("chauhana089@gmail.com")){
+                Intent AdminPanel = new Intent(getApplicationContext(), AdminPanel.class);
+                startActivity(AdminPanel);
+            }else{
+                Intent itemlist = new Intent(getApplicationContext(), itemlist2.class);
+                startActivity(itemlist);
+        }}
     }
 
     @Override

@@ -16,4 +16,6 @@
     <string name="category">Category</string>
     <string name="item_image">Item Image</string>
     <string name="AddImage">Add Picture</string>
+    <string name="add_item">Add Item</string>
+    <string name="delete_item">Delete Item</string>
 </resources>

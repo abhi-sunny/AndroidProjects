@@ -43,14 +43,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void Reset(View view) {
-        Intent AddUpdateItem=new Intent(getApplicationContext(),addupdateitem.class);
-        startActivity(AddUpdateItem);
-       /* UserName.setText("");
+        UserName.setText("");
         PassWord.setText("");
         displayName.setText("");
         Address.setText("");
         CustomToast cT = new CustomToast(getApplicationContext(), "All fields cleared", Toast.LENGTH_LONG, true);
-        cT.T.show();*/
+        cT.T.show();
     }
 
     public void Register(View view) {
