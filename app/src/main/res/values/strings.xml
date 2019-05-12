@@ -14,4 +14,6 @@
     <string name="item_name">Item Name</string>
     <string name="title_activity_add_update_item">addUpdateItem</string>
     <string name="category">Category</string>
+    <string name="item_image">Item Image</string>
+    <string name="AddImage">Add Picture</string>
 </resources>

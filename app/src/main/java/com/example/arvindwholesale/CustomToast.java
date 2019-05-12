@@ -17,5 +17,6 @@ class CustomToast {
         toast.setView(v);
         //toast.setGravity(Gravity.CLIP_VERTICAL, 0, 0);
         T = toast;
+        T.show();
     }
 }

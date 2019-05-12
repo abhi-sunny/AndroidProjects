@@ -1,5 +1,6 @@
 package com.example.arvindwholesale;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -42,12 +43,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void Reset(View view) {
-        UserName.setText("");
+        Intent AddUpdateItem=new Intent(getApplicationContext(),addupdateitem.class);
+        startActivity(AddUpdateItem);
+       /* UserName.setText("");
         PassWord.setText("");
         displayName.setText("");
         Address.setText("");
         CustomToast cT = new CustomToast(getApplicationContext(), "All fields cleared", Toast.LENGTH_LONG, true);
-        cT.T.show();
+        cT.T.show();*/
     }
 
     public void Register(View view) {

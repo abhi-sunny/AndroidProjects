@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/appbackground"
     tools:context=".addupdateitem">
 
     <ScrollView
@@ -40,7 +42,7 @@
                 tools:layout_editor_absoluteX="33dp" />
 
             <EditText
-                android:id="@+id/ItemCategoory"
+                android:id="@+id/ItemCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ItemNameEditText"
@@ -50,42 +52,32 @@
                 android:background="@drawable/roundedittext"
                 android:hint="@string/category"
                 android:inputType="textEmailAddress"
-                android:outlineAmbientShadowColor="@color/colorPrimaryDark"
                 android:padding="10dp" />
 
-
+            <ImageView
+                android:layout_below="@id/ItemCategory"
+                android:layout_width="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="100dp"
+                android:background="@color/cardview_dark_background"
+                android:layout_marginTop="30dp"
+                android:tooltipText="@string/AddImage"
+                android:id="@+id/ImageView"
+                android:onClick="setImage"
+                android:contentDescription="@string/item_image" />
             <Button
                 android:id="@+id/Button_Register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ItemCategoory"
+                android:layout_below="@id/ImageView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/roundbutton"
-                android:onClick="Register"
                 android:text="@string/register" />
 
-            <Button
-                android:id="@+id/Button_Reset"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Button_Register"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/roundbutton"
-                android:onClick="Reset"
-                android:text="@string/reset" />
-
-            <ImageView
-                android:id="@+id/ImageView"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_below="@id/Button_Reset" />
         </RelativeLayout>
     </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
